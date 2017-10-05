@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label fixed>Peso</ion-label>
+      <ion-input  type="number" min=0 step="0.1" [(ngModel)]="peso"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label fixed>Altura</ion-label>
+      <ion-input  type="number" min=0 step="0.1" [(ngModel)]="altura"></ion-input>
+    </ion-item>
+
+    <ion-item [hidden]="!resultado">
+          <ion-label>IMC: {{resultado}}</ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button ion-button color="light" (click)='calcularIMC();'>Calcular</button>
+  </div>
+
+  <div padding>
+      <button ion-button color="light" (click)='buscarPrevisao();'>Previsao</button>
+  </div>
+
+  <ion-list>
+    <button ion-item *ngFor="let user of users">
+      {{ user.id }} {{ user.body }}
+    </button>
+  </ion-list>
+
+</ion-content>
