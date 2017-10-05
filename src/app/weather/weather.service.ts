@@ -11,11 +11,8 @@ export class WeatherService {
 
     }
 
-    getWeatherByQuery() {
-       let headers = new Headers();
-       headers.append('Access-Control-Allow-Origin', '*');
-      return this.http.get('http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b1b15e88fa797225412429c1c50c122a1',
-      )
+    getWeatherByQuery(lat, lon) {
+      return this.http.get('http://api.apixu.com/v1/current.json?key=172933db26de44c6a8c204259170510&q='+lat+','+lon)
      .map((res:Response) => res.json())
      }
 }

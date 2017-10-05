@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ImcService } from './imc.service';
 import { WeatherService } from '../../app/weather/weather.service';
-
+import { Geolocation } from '@ionic-native/geolocation';
 
 @Component({
   selector: 'page-imc',
@@ -15,10 +15,10 @@ export class ImcComponent {
   resultado:any;
 
   users:{};
-  weather:{};
+  weathers:{};
 
   constructor(public navCtrl: NavController, private imcService: ImcService,
-  private weatherService: WeatherService) {
+  private weatherService: WeatherService, private geolocation: Geolocation) {
 
   }
 
@@ -27,6 +27,15 @@ export class ImcComponent {
     }
 
   buscarPrevisao() {
-      this.imcService.getDados().subscribe(data => this.users = data);
+      //this.imcService.getDados().subscribe(data => this.users = data);
+
+      this.geolocation.getCurrentPosition().then((resp) => {
+        console.log(resp.coords.latitude);
+        console.log(resp.coords.longitude);
+        this.weatherService.getWeatherByQuery(resp.coords.latitude,resp.coords.longitude).subscribe(data => this.weathers = data);
+      }).catch((error) => {
+        console.log('Error getting location', error);
+      });
+
   }
 }
