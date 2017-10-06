@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ImcComponent } from '../app/imc/imc.component';
 
+
 @Component({
   templateUrl: 'app.html'
 })

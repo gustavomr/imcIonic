@@ -30,18 +30,6 @@
     <button ion-button color="light" (click)='calcularIMC();'>Calcular</button>
   </div>
 
-  <div padding>
-      <button ion-button color="light" (click)='buscarPrevisao();'>Previsao</button>
-  </div>
+  <page-weather></page-weather>
 
-<!--  <ion-list>
-    <button ion-item *ngFor="let w of weathers.location">
-      {{w}}
-    </button>
-  </ion-list> -->
-
-{{weathers?.location.name}}
-
-
-
-</ion-content>
+<ion-content>

@@ -4,16 +4,14 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { Geolocation } from '@ionic-native/geolocation';
 
-
-
 import { MyApp } from './app.component';
-import { ImcService } from '../app/imc/imc.service';
-import { WeatherService } from '../app/weather/weather.service';
-
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ImcComponent } from '../app/imc/imc.component';
+import { WeatherComponent } from '../app/weather/weather.component';
 
+import { ImcService } from '../app/imc/imc.service';
+import { WeatherService } from '../app/weather/weather.service';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    ImcComponent
+    ImcComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +34,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MyApp,
     HomePage,
     ListPage,
-    ImcComponent
+    ImcComponent,
+    WeatherComponent
   ],
   providers: [
     StatusBar,
